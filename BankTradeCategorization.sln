@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankTradeCategorization", "teste\BankTradeCategorization.csproj", "{36335EFA-64D1-4010-BFDB-6460492AEC5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36335EFA-64D1-4010-BFDB-6460492AEC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36335EFA-64D1-4010-BFDB-6460492AEC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36335EFA-64D1-4010-BFDB-6460492AEC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36335EFA-64D1-4010-BFDB-6460492AEC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77960AAF-4B1E-4C4F-9710-437999597F84}
+	EndGlobalSection
+EndGlobal

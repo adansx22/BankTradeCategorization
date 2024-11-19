@@ -8,6 +8,7 @@ namespace teste
 {
     public class LowRiskCategory : ITradeCategory
     {
+        //Uma trade é "LOWRISK" se: O valor da trade for maior que 1.000.000. O setor do cliente for "Public".
         public string CategoryName => "LOWRISK";
 
         public bool IsMatch(ITrade trade, DateTime referenceDate)

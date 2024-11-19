@@ -8,6 +8,7 @@ namespace teste
 {
     public class Trade : ITrade
     {
+        //A classe Trade implementa a interface ITrade, representando uma operação financeira.
         public double Value { get; }
         public string ClientSector { get; }
         public DateTime NextPaymentDate { get; }

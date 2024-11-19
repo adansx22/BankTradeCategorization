@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using teste;
 
 namespace BankTradeCategorization
 {
     class Program
     {
+        //As trades são criadas e armazenadas em uma lista.
+        //As categorias de risco são aplicadas a cada trade.
+        //O método IsMatch verifica se uma trade atende aos critérios da categoria e, se sim, ela é categorizada de acordo.
+        //Este sistema permite uma categorização extensível de trades, onde novas categorias podem ser adicionadas facilmente implementando a
+        //interface ITradeCategory com novos critérios.
         static void Main(string[] args)
         {
             while (true)
@@ -16,6 +25,7 @@ namespace BankTradeCategorization
 
                     Console.WriteLine("Digite a data de referência (MM/dd/yyyy):");
                     DateTime referenceDate;
+                    //A entrada é validada usando DateTime.TryParseExact. Se a data for inválida, o programa solicita uma nova entrada.
                     if (!DateTime.TryParseExact(Console.ReadLine(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out referenceDate))
                     {
                         Console.WriteLine("Data de referência inválida. Use o formato MM/dd/yyyy.");
@@ -24,6 +34,7 @@ namespace BankTradeCategorization
 
 
                     Console.WriteLine("Digite o número de trades:");
+                    //A entrada é validada para garantir que seja um número positivo. Se for inválida, o programa solicita uma nova entrada.
                     if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
                     {
                         Console.WriteLine("Número de trades inválido. Por favor, insira um número positivo.");
@@ -88,6 +99,9 @@ namespace BankTradeCategorization
                         new LowRiskCategory()
                     };
 
+                    //Para cada trade, o código percorre todas as categorias e verifica se a
+                    //trade corresponde a alguma categoria usando o método IsMatch.
+                    //Se encontrar uma correspondência, exibe o nome da categoria e passa para a próxima trade.
                     Console.WriteLine("\nCategorias das trades:");
                     foreach (var trade in trades)
                     {
@@ -105,7 +119,7 @@ namespace BankTradeCategorization
                 {
                     Console.WriteLine($"Erro inesperado: {ex.Message}");
                 }
-
+                //O usuário pode facilmente tentar novamente se inserir dados incorretos, o que melhora a usabilidade do programa
                 Console.WriteLine("\nPressione qualquer tecla para limpar e repetir, ou 'Esc' para sair...");
                 var key = Console.ReadKey();
                 if (key.Key == ConsoleKey.Escape) break;
